@@ -6,13 +6,15 @@ This project builds a user-friendly Streamlit application that allows you to int
 
 Key Technologies:
 
-Streamlit: Streamlines front-end development for creating interactive web apps.
-PyPDF2: Extracts text content from PDF documents.
-LangChain:
-  RecursiveCharacterTextSplitter: Splits large text into manageable chunks for processing.
-  GoogleGenerativeAIEmbeddings: Generates vector representations of text using a pre-trained Google Generative AI model.
-  FAISS: Enables efficient vector search to retrieve relevant information from PDFs.
-  ChatGoogleGenerativeAI: Interacts with the Gemini Pro LLM model for question answering.
-  load_qa_chain: Constructs a question-answering chain using the specified model and prompt.
-  PromptTemplate: Defines a structured format for prompts sent to the LLM.
-dotenv: Loads environment variables from a .env file to securely store API keys
+Gemini Pro: This Large Language Model (LLM) from Google AI Platform serves as the core engine for understanding and responding to your questions. When you ask a question, the application uses Gemini Pro to analyze the retrieved text snippets from your PDFs and generate insightful answers.
+
+Streamlit: This framework simplifies front-end development, allowing for the creation of interactive web apps without extensive coding. In this project, Streamlit provides the foundation for the user interface where you upload your PDFs and ask questions in a chat-like format.
+
+LangChain: LangChain acts as the glue that connects various libraries seamlessly. Here, it plays a crucial role in:
+
+      Text Processing and Vector Embeddings: LangChain's RecursiveCharacterTextSplitter breaks down large PDF content into manageable chunks. It then utilizes GoogleGenerativeAIEmbeddings to generate numerical representations (vectors) for the extracted text. These vectors enable efficient similarity search, allowing the application to find the most relevant information within your PDFs based on your query.
+      
+      Vector Search:  LangChain's FAISS implementation facilitates searching for relevant information within your PDFs based on the user's query. This allows the application to retrieve the most pertinent text snippets for answering questions.
+      
+      Question Answering: LangChain's functionalities are leveraged to construct a question-answering chain that interacts with the powerful Gemini Pro LLM model for generating responses.
+
